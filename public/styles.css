@@ -1,0 +1,201 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+:root {
+    --blue: #049ef4;
+    --blueHover: #0d4b6f;
+}
+
+.toolbox {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 10px;
+    background-color: #fffe;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    box-shadow: 3px 2px 4px #777;
+    display: none;
+    z-index: 10;
+    max-width: 200px;
+}
+
+.moveIn-Right {
+    opacity: 1;
+    display: block;
+    animation-name: moveIn-Right;
+    animation-duration: 2s;
+}
+
+@keyframes moveIn-Right {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.toolbox .toolbox-position-sliders {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.toolbox-position-sliders .toolbox-position-input input,
+select {
+    width: 100%;
+}
+.gen-mesh-form {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+
+    display: grid;
+    place-content: center;
+
+    z-index: 10;
+    animation-name: appear;
+    animation-duration: 1000ms;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.disappear {
+    animation-name: disappear;
+    animation-duration: 1000ms;
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.gen-mesh-form-content {
+    background-color: white;
+    padding: 50px;
+    background-color: #fffe;
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px #777;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    animation-name: moveIn-Up;
+    animation-duration: 1500ms;
+}
+
+@keyframes moveIn-Up {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.moveOut-Down {
+    animation-name: moveOut-Down;
+    animation-duration: 1500ms;
+}
+
+@keyframes moveOut-Down {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+.gen-mesh-form-content h1 {
+    text-align: center;
+}
+.number-input {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+button {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+}
+
+.num-btn {
+    font-size: 30px;
+    font-weight: bolder;
+    width: 75px;
+    height: 50px;
+    padding-bottom: 5px;
+}
+
+button:hover {
+    background-color: var(--blueHover);
+    cursor: pointer;
+}
+
+.number-input-num {
+    background-color: #efefef;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-top: 2px;
+    width: 150px;
+}
+
+.mesh-input-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.mesh-input-group p {
+    font-size: 25px;
+    width: 100%;
+    font-weight: bolder;
+}
+
+.mesh-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.generate-btn {
+    padding: 10px 35px;
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 10px;
+}

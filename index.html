@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Spline Surface</title>
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <div class="toolbox">
+            <h2>Toolbox</h2>
+            <div class="toolbox-position-sliders">
+                <h4>Mesh Controls</h4>
+                <div class="toolbox-position-input">
+                    <p>Wireframe</p>
+                    <span>
+                        <input type="checkbox" id="wireframe-cb" checked />
+                    </span>
+                </div>
+
+                <div class="toolbox-position-input">
+                    <p>Mesh Colour</p>
+                    <input type="color" value="#049ef4" id="color-picker" />
+                </div>
+            </div>
+            <div class="toolbox-position-sliders">
+                <h4>Point Controls</h4>
+                <div class="toolbox-position-input">
+                    <p>Select a Point</p>
+                    <select id="point-selector"></select>
+                </div>
+                <div class="toolbox-position-input">
+                    <p>Position in Z</p>
+                    <input type="range" min="-5" max="5" value="0" id="z-slider" />
+                </div>
+            </div>
+
+            <div class="toolbox-position-sliders">
+                <h4>Quick Tips</h4>
+                <p>Use the <strong>left and right arrow keys</strong> to change focus point</p>
+                <p>Use the <strong>up and down arrow keys</strong> to chaing the point height</p>
+            </div>
+        </div>
+        <div class="gen-mesh-form">
+            <div class="gen-mesh-form-content">
+                <h1>Spline Surface</h1>
+
+                <div class="mesh-inputs">
+                    <div class="mesh-input-group">
+                        <p>Control Points in X</p>
+                        <div class="number-input">
+                            <button id="dec-cpx" class="num-btn">-</button>
+                            <span id="cpx" class="number-input-num">3</span>
+                            <button id="add-cpx" class="num-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="mesh-input-group">
+                        <p>Control Points in Y</p>
+                        <div class="number-input">
+                            <button id="dec-cpy" class="num-btn">-</button>
+                            <span id="cpy" class="number-input-num">3</span>
+                            <button id="add-cpy" class="num-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="mesh-input-group">
+                        <p>Number of subdivisions</p>
+                        <div class="number-input">
+                            <button id="dec-ip" class="num-btn">-</button>
+                            <span id="interpolation" class="number-input-num">3</span>
+                            <button id="add-ip" class="num-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="generate-btn" id="genMesh-btn">Generate Mesh</button>
+            </div>
+        </div>
+        <script>
+            const cpxField = document.getElementById("cpx");
+            const cpyField = document.getElementById("cpy");
+            const ipField = document.getElementById("interpolation");
+
+            const decCpx = document.getElementById("dec-cpx");
+            decCpx.addEventListener("click", (evt) => {
+                const val = parseInt(cpxField.innerText);
+                if (val <= 3) return;
+
+                cpxField.innerText = val - 1;
+            });
+
+            const addCpx = document.getElementById("add-cpx");
+            addCpx.addEventListener("click", (evt) => {
+                const val = parseInt(cpxField.innerText);
+                if (val >= 10) return;
+
+                cpxField.innerText = val + 1;
+            });
+
+            const decCpy = document.getElementById("dec-cpy");
+            decCpy.addEventListener("click", (evt) => {
+                const val = parseInt(cpyField.innerText);
+                if (val <= 3) return;
+
+                cpyField.innerText = val - 1;
+            });
+
+            const addCpy = document.getElementById("add-cpy");
+            addCpy.addEventListener("click", (evt) => {
+                const val = parseInt(cpyField.innerText);
+                if (val >= 10) return;
+
+                cpyField.innerText = val + 1;
+            });
+
+            const decIp = document.getElementById("dec-ip");
+            decIp.addEventListener("click", (evt) => {
+                const val = parseInt(ipField.innerText);
+                if (val <= 1) return;
+
+                ipField.innerText = val - 1;
+            });
+
+            const addIp = document.getElementById("add-ip");
+            addIp.addEventListener("click", (evt) => {
+                const val = parseInt(ipField.innerText);
+                if (val >= 10) return;
+
+                ipField.innerText = val + 1;
+            });
+        </script>
+
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>
